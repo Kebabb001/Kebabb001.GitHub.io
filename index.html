@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Your Name</title>
+    <title>Ömer - Full Stack Developer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Your Name</div>
+            <div class="logo">Ömer</div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -23,8 +24,8 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Hi, I'm Your Name</h1>
-            <p>Full Stack Developer | Designer | Problem Solver</p>
+            <h1>Hi, I'm Ömer</h1>
+            <p>Programming Student | Aspiring Developer | Creative Problem Solver</p>
             <a href="#projects" class="cta-button">View My Work</a>
         </div>
     </section>
@@ -33,19 +34,28 @@
     <section id="about" class="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>I'm a passionate developer with experience in building web applications. I love creating elegant solutions to complex problems and continuously learning new technologies.</p>
-            <div class="skills">
-                <div class="skill-item">
-                    <h3>Frontend</h3>
-                    <p>HTML, CSS, JavaScript, React</p>
+            <p>My name is Ömer, and I am a programming student with a strong passion for technology and creative problem-solving. I am currently expanding my skills in <strong>HTML, CSS, JavaScript, C#, and Unity</strong>, while also focusing on modern design principles and user experience.</p>
+            <p>I enjoy coding and trying to make games and other interactive projects.</p>
+            <p>As I continue learning and improving, I am always motivated to explore new technologies, take on challenging projects, and grow as a developer. My goal is to create high-quality digital products that are both practical and enjoyable to use.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript, Responsive Design</p>
                 </div>
-                <div class="skill-item">
-                    <h3>Backend</h3>
-                    <p>Node.js, Python, SQL</p>
+                <div class="skill-card">
+                    <h3>Game Development</h3>
+                    <p>C#, Unity, Game Design</p>
                 </div>
-                <div class="skill-item">
-                    <h3>Tools</h3>
-                    <p>Git, VS Code, Docker</p>
+                <div class="skill-card">
+                    <h3>Tools & Learning</h3>
+                    <p>VS Code, Git, GitHub, Problem Solving</p>
                 </div>
             </div>
         </div>
@@ -58,41 +68,41 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Project One</h3>
+                        <h3>Personal Portfolio Website</h3>
                     </div>
-                    <p>A modern web application built with React and Node.js. Features real-time updates and responsive design.</p>
+                    <p>A responsive portfolio website built with HTML, CSS, and JavaScript. Features smooth scrolling, interactive elements, and modern design principles.</p>
                     <div class="project-tags">
-                        <span>React</span>
-                        <span>Node.js</span>
-                        <span>MongoDB</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
                     </div>
-                    <a href="#" class="project-link">View Project →</a>
+                    <a href="#" class="project-link" data-project="portfolio">View Project →</a>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Project Two</h3>
+                        <h3>2D Platformer Game</h3>
                     </div>
-                    <p>A full-stack e-commerce platform with payment integration and user authentication.</p>
+                    <p>A simple 2D platformer game developed in Unity using C#. Includes character movement, obstacles, and basic game mechanics.</p>
                     <div class="project-tags">
-                        <span>Vue.js</span>
-                        <span>Django</span>
-                        <span>PostgreSQL</span>
+                        <span>C#</span>
+                        <span>Unity</span>
+                        <span>Game Development</span>
                     </div>
-                    <a href="#" class="project-link">View Project →</a>
+                    <a href="#" class="project-link" data-project="game">View Project →</a>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Project Three</h3>
+                        <h3>3D Platformer Game</h3>
                     </div>
-                    <p>A data visualization dashboard that analyzes and displays complex datasets in an intuitive interface.</p>
+                    <p>A 3D platformer game built with Unity and C#. Features advanced 3D environments, character controls, physics-based gameplay, and immersive game mechanics.</p>
                     <div class="project-tags">
-                        <span>React</span>
-                        <span>D3.js</span>
-                        <span>Python</span>
+                        <span>C#</span>
+                        <span>Unity</span>
+                        <span>3D Graphics</span>
                     </div>
-                    <a href="#" class="project-link">View Project →</a>
+                    <a href="#" class="project-link" data-project="3dgame">View Project →</a>
                 </div>
             </div>
         </div>
@@ -102,9 +112,9 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2>Get In Touch</h2>
-            <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+            <p>I'm always excited to connect with fellow developers and explore new opportunities. Whether you have questions about my projects or want to collaborate, feel free to reach out!</p>
             <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-button">Email Me</a>
+                <a href="mailto:omer.kipcak@email.com" class="contact-button">Email Me</a>
                 <a href="https://github.com" target="_blank" class="contact-button">GitHub</a>
                 <a href="https://linkedin.com" target="_blank" class="contact-button">LinkedIn</a>
             </div>
@@ -113,8 +123,18 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 Your Name. All rights reserved.</p>
+        <p>&copy; 2026 Ömer. All rights reserved.</p>
     </footer>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalContent">
+                <!-- Project details will be loaded here -->
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
