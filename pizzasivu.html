@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PizzaPalatsi - Tilaa Pizzaa Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">🍕 PizzaPalatsi</div>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#" class="nav-link" data-section="home">Koti</a></li>
+                    <li><a href="#" class="nav-link" data-section="about">Tietoja</a></li>
+                    <li><a href="#" class="nav-link" data-section="menu">Ruokalista</a></li>
+                    <!-- admin link removed to simplify UI; admin panel accessible via direct URL or hidden management -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Tervetuloa PizzaPalatsiin🍕</h1>
+            <p>Paras pizza kaupungissa - Tilaa nyt online!</p>
+            <button onclick="showSection('menu')" class="btn btn-primary">Aloita Tilaus</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Tietoja Meistä</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>📅 Perustaminen</h3>
+                    <p>PizzaPalatsi perustettiin <strong>2015</strong> tuomaan parempia pizzoja kaupunkiin.</p>
+                </div>
+                <div class="about-card">
+                    <h3>🎯 Visio</h3>
+                    <p>Tarjota parempia, nopeampia ja helppokäyttöisiä pizzojen tilauspalveluja asiakkaillemme.</p>
+                </div>
+                <div class="about-card">
+                    <h3>👨‍🍳 Ammattilaiset</h3>
+                    <p>Kokeneista pizzapelaajista koostuva tiimi tekee jokaisen pizzan rakkauden kanssa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2>Ruokalista</h2>
+            
+            <!-- category tabs -->
+            <div class="menu-tabs" style="text-align:center; margin-bottom:1.5rem;">
+                <button id="show-pizzas" class="btn btn-secondary">🍕 Pizzat</button>
+                <button id="show-drinks" class="btn btn-secondary">🥤 Juomat</button>
+            </div>
+
+            <!-- Pizza Menu -->
+            <div class="menu-category" id="pizza-category">
+                <h3>🍕 Pizzat</h3>
+                <div class="menu-grid" id="pizza-grid">
+                    <!-- staattiset esimerkkipizzat, näkyvät vaikka JS ei toimisi -->
+                    <div class="menu-item static">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300&h=300&fit=crop" alt="Margherita" class="menu-item-image">
+                        <div class="menu-item-content">
+                            <h3>Margherita</h3>
+                            <p>Tom, mozzarella ja basilika</p>
+                            <div class="menu-item-price">12.90€</div>
+                        </div>
+                    </div>
+                    <div class="menu-item static">
+                        <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=300&h=300&fit=crop" alt="Pepperoni" class="menu-item-image">
+                        <div class="menu-item-content">
+                            <h3>Pepperoni</h3>
+                            <p>Tom, mozzarella ja pepperoni</p>
+                            <div class="menu-item-price">14.90€</div>
+                        </div>
+                    </div>
+                    <div class="menu-item static">
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=300&fit=crop" alt="Vesuvius" class="menu-item-image">
+                        <div class="menu-item-content">
+                            <h3>Vesuvius</h3>
+                            <p>Tom, mozzarella, jalapeno ja chili</p>
+                            <div class="menu-item-price">15.90€</div>
+                        </div>
+                    </div>
+                    <div class="menu-item static">
+                        <img src="https://images.unsplash.com/photo-1571066811602-716837d681de?w=300&h=300&fit=crop" alt="Quattro Formaggi" class="menu-item-image">
+                        <div class="menu-item-content">
+                            <h3>Quattro Formaggi</h3>
+                            <p>Tom, mozzarella, parmesaani ja blue cheese</p>
+                            <div class="menu-item-price">17.90€</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drinks Menu -->
+            <div class="menu-category" id="drinks-category">
+                <h3>🥤 Juomat</h3>
+                <div class="menu-grid" id="drinks-grid">
+                    <!-- staattiset juomat esimerkkinä -->
+                    <div class="menu-item static">
+                        <img src="https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=300&h=300&fit=crop" alt="Coca-Cola" class="menu-item-image">
+                        <div class="menu-item-content">
+                            <h3>Coca-Cola</h3>
+                            <p>Klassinen virvoitusjuoma</p>
+                            <div class="menu-item-price">2.50€</div>
+                        </div>
+                    </div>
+                    <div class="menu-item static">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop" alt="Fanta Appelsiini" class="menu-item-image">
+                        <div class="menu-item-content">
+                            <h3>Fanta Appelsiini</h3>
+                            <p>Makea appelsiinijuoma</p>
+                            <div class="menu-item-price">2.50€</div>
+                        </div>
+                    </div>
+                    <div class="menu-item static">
+                        <img src="https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=300&h=300&fit=crop" alt="Sprite" class="menu-item-image">
+                        <div class="menu-item-content">
+                            <h3>Sprite</h3>
+                            <p>Sitruunainen virvoitusjuoma</p>
+                            <div class="menu-item-price">2.50€</div>
+                        </div>
+                    </div>
+                    <div class="menu-item static">
+                        <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=300&h=300&fit=crop" alt="Appelsiinimehu" class="menu-item-image">
+                        <div class="menu-item-content">
+                            <h3>Appelsiinimehu</h3>
+                            <p>Tuore appelsiinimehu</p>
+                            <div class="menu-item-price">3.50€</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment" class="payment-section" style="display: none;">
+        <div class="container">
+            <h2>Maksu</h2>
+            <button id="back-to-menu" class="btn btn-secondary">Takaisin valikkoon</button>
+            <div id="payment-item" class="payment-item">
+                <!-- Item details will be populated here -->
+            </div>
+            <form id="payment-form" class="payment-form">
+                <div class="form-group">
+                    <label>Määrä:</label>
+                    <input type="number" id="payment-quantity" name="quantity" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Puhelinnumero:</label>
+                    <input type="tel" id="payment-phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Osoite (missä asut):</label>
+                    <input type="text" id="payment-address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label>Kortin numero:</label>
+                    <input type="text" id="payment-card-number" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Vanhentumispäivä:</label>
+                        <input type="text" id="payment-card-expiry" name="cardExpiry" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label>CVV:</label>
+                        <input type="text" id="payment-card-cvv" name="cardCvv" placeholder="123" required>
+                    </div>
+                </div>
+                <div class="payment-total">
+                    <strong>Yhteensä: <span id="payment-total">0.00€</span></strong>
+                </div>
+                <button type="button" id="confirm-payment" class="btn btn-primary full-width">Vahvista Tilaus</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Order Tracking Section -->
+    <section id="tracking" class="tracking-section" style="display: none;">
+        <div class="container">
+            <h2>Tilauksen Seuranta</h2>
+            <div class="tracking-status">
+                <div class="status-item active">
+                    <div class="status-circle">✓</div>
+                    <p>Tilaus Vastaanotettu</p>
+                </div>
+                <div class="status-item" id="status-preparing">
+                    <div class="status-circle">2</div>
+                    <p>Valmistus</p>
+                </div>
+                <div class="status-item" id="status-delivery">
+                    <div class="status-circle">3</div>
+                    <p>Toimitus</p>
+                </div>
+                <div class="status-item" id="status-done">
+                    <div class="status-circle">✓</div>
+                    <p>Valmis!</p>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="back-to-home">Takaisin Alkuun</button>
+        </div>
+    </section>
+
+    <!-- Admin Panel -->
+    <section id="admin" class="admin-section" style="display: none;">
+        <div class="container">
+            <h2>Admin Panel</h2>
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="orders-tab">Tilaukset</button>
+                <button class="tab-btn" data-tab="add-product-tab">Lisää Tuote</button>
+            </div>
+            
+            <div id="orders-tab" class="tab-content active">
+                <h3>Kaikki Tilaukset</h3>
+                <div id="orders-list" class="orders-list">
+                    <p>Ei tilauksia vielä</p>
+                </div>
+            </div>
+
+            <div id="add-product-tab" class="tab-content" style="display: none;">
+                <h3>Lisää Uusi Pizza/Juoma</h3>
+                <form id="add-product-form" class="add-product-form">
+                    <div class="form-group">
+                        <label>Tyyppi:</label>
+                        <select id="product-type" name="type" required>
+                            <option value="pizza">Pizza</option>
+                            <option value="drink">Juoma</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nimi:</label>
+                        <input type="text" id="product-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Kuvaus:</label>
+                        <textarea id="product-desc" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Hinta (€):</label>
+                        <input type="number" id="product-price" name="price" step="0.01" min="0" required>
+                    </div>
+                    <button type="button" id="add-product-btn" class="btn btn-primary full-width">Lisää Tuote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Tuotteen Nimi</h2>
+            <p id="modal-description">Kuvaus tulee tänne</p>
+            <div id="modal-body"></div>
+            <div class="modal-footer">
+                <div class="price-display">
+                    <strong>Hinta: <span id="modal-price">0.00 €</span></strong>
+                </div>
+                <button class="btn btn-primary full-width" id="add-to-cart-btn">Lisää Ostoskoriin</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 PizzaPalatsi. Perustaminen 2015. Kaikki oikeudet pidätetään.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
