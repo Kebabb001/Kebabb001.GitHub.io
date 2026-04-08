@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömer - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Portfolio Specific Styles */
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* About Me Section */
+        .about-section {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .highlight-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-card p {
+            color: var(--gray);
+            margin: 0;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            padding: 80px 20px;
+            background: var(--light);
+        }
+
+        .experience-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .experience-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .experience-item {
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .experience-item:nth-child(odd) .exp-content {
+            grid-column: 2;
+        }
+
+        .experience-item:nth-child(even) .exp-content {
+            grid-column: 1;
+        }
+
+        .exp-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .exp-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .exp-content h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .exp-content p {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .skills-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .skills-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skills-category {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .skills-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .skills-category h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            padding: 0.6rem 0;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+        }
+
+        .skills-list li::before {
+            content: '▸';
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 20px;
+            background: var(--light);
+        }
+
+        .projects-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .projects-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-role {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .project-description {
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            background: var(--light);
+            color: var(--primary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .contact-item p {
+            margin: 0;
+        }
+
+        .contact-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .experience-timeline::before {
+                display: none;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-item:nth-child(odd) .exp-content,
+            .experience-item:nth-child(even) .exp-content {
+                grid-column: 1;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-section h2,
+            .experience-section h2,
+            .skills-section h2,
+            .projects-section h2,
+            .contact-section h2 {
+                font-size: 2rem;
+            }
+
+            .about-text {
+                font-size: 1rem;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Ömer</div>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <div class="portfolio-container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    Hello! My name is <strong>Ömer</strong>, and I am a passionate <strong>programming student</strong> with a strong interest in technology and creative problem-solving. I'm currently studying and developing my skills in both web development and game design.
+                </p>
+                <p class="about-text">
+                    I am known for being <strong>curious, determined, and collaborative</strong>. I enjoy solving complex problems and continuously learning new technologies. My creative approach to coding allows me to build both functional and visually appealing digital products. I thrive in environments where I can contribute fresh ideas and learn from experienced developers.
+                </p>
+                <p class="about-text">
+                    <strong>Hobbies & Interests:</strong> Walking, listening to music.
+                </p>
+
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <h4>🎯 Goals</h4>
+                        <p>Become a skilled full-stack developer and create impactful software solutions</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>📚 Learning</h4>
+                        <p>Constantly expanding knowledge in web tech, game engines, and best practices</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>🤝 Values</h4>
+                        <p>Clean code, collaboration, continuous improvement, and user-centered design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="portfolio-container">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3>🎮 Game Development</h3>
+                    <ul class="skills-list">
+                        <li>Unity</li>
+                        <li>Basic Coding</li>
+                    </ul>
+                </div>
+
+                <div class="skills-category">
+                    <h3>🛠️ Tools & Technologies</h3>
+                    <ul class="skills-list">
+                        <li>Git & GitHub</li>
+                        <li>Visual Studio Code</li>
+                        <li>Visual Studio</li>
+                        <li>GitHub Pages</li>
+                    </ul>
+                </div>
+
+                <div class="skills-category">
+                    <h3>📋 Office & Productivity</h3>
+                    <ul class="skills-list">
+                        <li>Microsoft Word</li>
+                        <li>Microsoft Excel</li>
+                        <li>Microsoft PowerPoint</li>
+                        <li>Google Workspace</li>
+                        <li>Project Management Basics</li>
+                    </ul>
+                </div>
+
+                <div class="skills-category">
+                    <h3>💡 Soft Skills</h3>
+                    <ul class="skills-list">
+                        <li>Problem Solving</li>
+                        <li>Creative Thinking</li>
+                        <li>Project Planning</li>
+                        <li>Self-Learning</li>
+                        <li>Communication</li>
+                    </ul>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="portfolio-container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <div class="project-header">
+                        <h3>Personal Portfolio Website</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-role">Web Development</div>
+                        <p class="project-description">
+                            Created a responsive portfolio website to showcase my projects and skills. Built from scratch using HTML, CSS, and JavaScript with a focus on modern design and user experience.
+                        </p>
+                        <p><strong>My Role:</strong> Full-stack developer - designed the layout, implemented responsive design, and deployed using GitHub Pages.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Responsive Design</span>
+                        </div>
+                        <a href="index.html" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <h3>2D Platformer Game</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-role">Game Development</div>
+                        <p class="project-description">
+                            Developed a 2D platformer game using Unity and C#. Features character movement, enemy AI, collectibles, and challenging level design with physics-based gameplay mechanics.
+                        </p>
+                        <p><strong>My Role:</strong> Solo developer - managed all aspects including game design, programming, asset integration, and gameplay mechanics.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">C#</span>
+                            <span class="project-tag">Game Design</span>
+                        </div>
+                        <a href="#" class="project-link">Project Details →</a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <h3>3D Platformer Game</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-role">Game Development</div>
+                        <p class="project-description">
+                            Built a 3D platformer game with advanced features including complex level design, camera systems, physics-based movement, and immersive gameplay mechanics using Unity and C#.
+                        </p>
+                        <p><strong>My Role:</strong> Lead developer - responsible for 3D environment setup, player controller programming, camera implementation, and gameplay optimization.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">C#</span>
+                            <span class="project-tag">3D Graphics</span>
+                            <span class="project-tag">Physics</span>
+                        </div>
+                        <a href="#" class="project-link">Project Details →</a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <h3>PizzaPalace Website</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-role">Web Development</div>
+                        <p class="project-description">
+                            Created an interactive pizza ordering website with menu browsing, cart functionality, and order management. Demonstrates full web development capabilities with responsive design and smooth interactions.
+                        </p>
+                        <p><strong>My Role:</strong> Full-stack developer - implemented frontend, JavaScript logic, and UI design for an e-commerce platform.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">E-commerce</span>
+                        </div>
+                        <a href="pizzasivu.html" class="project-link">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="portfolio-container">
+            <h2>Contact Information</h2>
+            <div class="contact-content">
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p>
+                        <a href="mailto:omer.kipcak@student.careeria.fi" class="contact-link">omer.kipcak@student.careeria.fi</a>
+                    </p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>� GitHub</h3>
+                    <p>
+                        <a href="https://github.com/Kebabb001" target="_blank" class="contact-link">github.com/Kebabb001</a>
+                    </p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>Finland</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Ömer Kılıçak. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
